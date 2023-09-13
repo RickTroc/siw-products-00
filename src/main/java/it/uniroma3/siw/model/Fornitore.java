@@ -20,7 +20,17 @@ public class Fornitore {
 
     private String indirizzo;
 
-    @ManyToMany(mappedBy = "fornitori")
+    private String email;
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @ManyToMany
     private List<Prodotto> prodotti;
 
     public long getId() {
@@ -55,6 +65,46 @@ public class Fornitore {
         this.prodotti = prodotti;
     }
 
+    @Override
+    public int hashCode() {
+        final int prime = 31;
+        int result = 1;
+        result = prime * result + (int) (id ^ (id >>> 32));
+        result = prime * result + ((nome == null) ? 0 : nome.hashCode());
+        result = prime * result + ((indirizzo == null) ? 0 : indirizzo.hashCode());
+        result = prime * result + ((prodotti == null) ? 0 : prodotti.hashCode());
+        return result;
+    }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Fornitore other = (Fornitore) obj;
+        if (id != other.id)
+            return false;
+        if (nome == null) {
+            if (other.nome != null)
+                return false;
+        } else if (!nome.equals(other.nome))
+            return false;
+        if (indirizzo == null) {
+            if (other.indirizzo != null)
+                return false;
+        } else if (!indirizzo.equals(other.indirizzo))
+            return false;
+        if (prodotti == null) {
+            if (other.prodotti != null)
+                return false;
+        } else if (!prodotti.equals(other.prodotti))
+            return false;
+        return true;
+    }
+
+    
     
 }

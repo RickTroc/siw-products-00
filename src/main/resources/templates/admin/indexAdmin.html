@@ -33,10 +33,11 @@
                     aria-labelledby="offcanvasDarkNavbarLabel">
                     <div class="offcanvas-header">
                         <div th:if="${userDetails}">
-                            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" th:text="'Ciao ' + ${userDetails.username}">Dark offcanvas</h5>    
+                            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel"
+                                th:text="'Ciao ' + ${userDetails.username}">Dark offcanvas</h5>
                         </div>
                         <div th:unless="${userDetails}">
-                            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel" >Ciao Ospite</h5>
+                            <h5 class="offcanvas-title" id="offcanvasDarkNavbarLabel">Ciao Ospite</h5>
                         </div>
                         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas"
                             aria-label="Close"></button>
@@ -62,12 +63,12 @@
 
 
         <header class=" img-fluid">
-            <div class="intro-body align-items-center d-flex" >
+            <div class="intro-body">
                 <div class="container">
                     <div class="row">
                         <div class="col-lg-6 mx-auto text-center">
                             <div class="brand-heading mb-1">
-                                <img src="/images/logo.png" width="15%" class="img-fluid">
+                                <img src="/images/logo.png" class="img-fluid">
                             </div>
                             <p class="intro-text mb-5 mt-4">Il tuo catalogo, a portata di mano.</p>
 
@@ -81,7 +82,13 @@
                                         </a>
                                     </div>
 
-                        
+                                    <div class="col">
+                                        <p>Accedi al catalogo completo</p>
+                                        <a href="#TODO" class="btn btn-circle js-scroll-trigger">
+                                            <i class="fa-solid fa-box-archive fa-xlg"></i>
+                                        </a>
+                                    </div>
+
                                     <div class="col">
                                         <p>Prodotti</p>
                                         <a href="/prodotti" class="btn btn-circle js-scroll-trigger">
@@ -104,36 +111,39 @@
             }
         </style>
 
-        <footer class="content-section text-center apply-section"
-        style="height: 100vh; display: flex; flex-direction: column ;"></footer>
-
-        <!-- 
-      <section id="#fornitori" class="content-section text-center apply-section"
+        <section id="#fornitori" class="content-section text-center apply-section"
             style="padding-top: 80px; padding-bottom: 80px;">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h2>Fornitori</h2>
+                        <h2>Operazioni sui Fornitori</h2>
                         <div class="row services">
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-                                        </div>
-                                        <h4 class="heading" th:text="${userDetails.username}">"CERCA PER NOME" </h4>
+                                        <a href="/admin/formNewFornitore" style="text-decoration: none;">
+                                            <div class="icon">
+                                                <i class="fa-solid fa-plus fa-xl"></i>
+                                            </div>
+                                            <h4 class="heading">AGGIUNGI UN FORNITORE </h4>
+                                        </a>
                                     </div>
                                     <div class="col-sm-4">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-                                        </div>
-                                        <h4 class="heading">"CERCA PER NOME"</h4>
+
+                                        <a href="/admin/manageFornitore" style="text-decoration: none;">
+                                            <div class="icon">
+                                                <i class="fa-solid fa-list-check fa-xl"></i>
+                                            </div>
+                                            <h4 class="heading">GESTISCI FORNITORE</h4>
+                                        </a>
                                     </div>
                                     <div class="col-sm-4">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-                                        </div>
-                                        <h4 class="heading">"CERCA PER NOME"</h4>
+                                        <a href="admin/deleteFornitore" style="text-decoration: none;">
+                                            <div class="icon">
+                                                <i class="fa-solid fa-xmark fa-xl"></i>
+                                            </div>
+                                            <h4 class="heading">ELIMINA FORNITORE</h4>
+                                        </a>
                                     </div>
 
                                 </div>
@@ -150,27 +160,33 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-8 mx-auto">
-                        <h2>Prodotti</h2>
+                        <h2>Operazioni sui prodotti</h2>
                         <div class="row services">
                             <div class="col-md-12">
                                 <div class="row">
                                     <div class="col-sm-4">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-                                        </div>
-                                        <h4 class="heading">"CERCA PER NOME" </h4>
+                                        <a href="/admin/formNewProdotto" style="text-decoration: none;">
+                                            <div class="icon">
+                                                <i class="fa-solid fa-plus fa-xl"></i>
+                                            </div>
+                                            <h4 class="heading">AGGIUNGI PRODOTTO </h4>
+                                        </a>
                                     </div>
                                     <div class="col-sm-4">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-                                        </div>
-                                        <h4 class="heading">"CERCA PER NOME"</h4>
+                                        <a href="/admin/manageProdotto">
+                                            <div class="icon">
+                                                <i class="fa-solid fa-list-check fa-xl"></i>
+                                            </div>
+                                            <h4 class="heading">GESTISCI PRODOTTO</h4>
+                                        </a>
                                     </div>
                                     <div class="col-sm-4">
-                                        <div class="icon">
-                                            <i class="fa-solid fa-magnifying-glass fa-xl"></i>
-                                        </div>
-                                        <h4 class="heading">"CERCA PER NOME"</h4>
+                                        <a href="/admin/deleteProdotto">
+                                            <div class="icon">
+                                                <i class="fa-solid fa-xmark fa-xl"></i>
+                                            </div>
+                                            <h4 class="heading">ELIMINA PRODOTTO</h4>
+                                        </a>
                                     </div>
 
                                 </div>
@@ -182,8 +198,6 @@
 
         </section>
 
-        -->
-  
 
     </body>
 
