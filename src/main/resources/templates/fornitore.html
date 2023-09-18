@@ -69,7 +69,7 @@
 
     <section>
         <div class="container text-center my-5">
-            <div th:unless="${fornitore.prodotti.isEmpty()}">
+            <div th:unless="${!fornitore.prodotti.isEmpty()}">
                 <p>Questo fornitore non ha prodotti nel sistema</p>
             </div>
             <div class="row service" th:if="${!fornitore.prodotti.isEmpty()}">

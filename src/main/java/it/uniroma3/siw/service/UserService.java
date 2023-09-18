@@ -14,6 +14,7 @@ import it.uniroma3.siw.repository.UsersRepository;
 
 @Service
 public class UserService {
+    
      @Autowired
     protected UsersRepository usersRepository;
 
